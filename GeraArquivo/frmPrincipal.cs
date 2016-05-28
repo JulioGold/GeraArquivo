@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
@@ -63,10 +58,12 @@ namespace GeraArquivo
                 {
                     conteudoArquivo.Append(bloco);
                 }
+
                 StreamWriter sw = new StreamWriter(txtCaminho.Text);
                 sw.Write(conteudoArquivo);
                 sw.Flush();
                 sw.Close();
+
                 MessageBox.Show("Terminou.");
             }
             catch (Exception ex)
@@ -78,6 +75,7 @@ namespace GeraArquivo
         private void btnCaminho_Click(object sender, EventArgs e)
         {
             SaveFileDialog svd = new SaveFileDialog();
+
             if (svd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 txtCaminho.Text = svd.FileName;
@@ -105,6 +103,7 @@ namespace GeraArquivo
         {
             long tamanho = 1;
             string notacao = "bytes";
+
             switch (cboEscala.Text)
             {
                 case "byte":
@@ -128,6 +127,7 @@ namespace GeraArquivo
                     tamanho = (long)nudTamanho.Value;
                     break;
             }
+
             lblDescricaoTamanho.Text = "Tamanho " + String.Format("{0:#,0}", tamanho) + " " + notacao;
         }
     }
