@@ -128,7 +128,9 @@ namespace GeraArquivo
                     break;
             }
 
-            lblDescricaoTamanho.Text = "Tamanho " + String.Format("{0:#,0}", tamanho) + " " + notacao;
+            string tamanhoFormatado = String.Format("{0:#,0}", tamanho);
+
+            lblDescricaoTamanho.Text = $"Tamanho {tamanhoFormatado} {notacao}";
         }
     }
 }
